@@ -16,6 +16,6 @@
 2. *Programming concepts in R.*
 3. *Communication skills and reporting with R markdown.*
 
-**Link to a optional book beneficial for this course:** ![R for Data Science](https://r4ds.hadley.nz/)
+**Link to a optional book beneficial for this course:** [R for Data Science](https://r4ds.hadley.nz/)
 
 **A meme that captures how I currently feel about my university studies is** ![](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmgxNnNtdmNjMDQ5MnpvNmR5bmloOGM0eDZqOGF4aml3ZGgwNmNvOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gi2NY4uXOW3NDR4lcF/giphy.gif)
