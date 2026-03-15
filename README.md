@@ -17,4 +17,4 @@
 3. *Communication skills and reporting with R markdown.*
 
 
-A meme that captures how I currently feel about my university studies is ![Click here](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmgxNnNtdmNjMDQ5MnpvNmR5bmloOGM0eDZqOGF4aml3ZGgwNmNvOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gi2NY4uXOW3NDR4lcF/giphy.gif)
+A meme that captures how I currently feel about my university studies is ![](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmgxNnNtdmNjMDQ5MnpvNmR5bmloOGM0eDZqOGF4aml3ZGgwNmNvOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gi2NY4uXOW3NDR4lcF/giphy.gif)
