@@ -1,0 +1,92 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+body{
+font-size:20px;
+color: #000000;
+background-color: #f0f0f0;
+font-family: "Arial";
+}
+h1{
+text-align: center;
+}
+h2{
+color: #ff6600
+}
+
+```
+
+# **BALANCING STUDENT LIFE**
+
+## This is what some starting observation of collected data looks like:
+
+```{r}
+library(tidyverse)
+library(knitr)
+
+logged_data = read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQP_1fNXabj84D3fZOPSbYNXECUpItLPvQWX99VvGOaPo6bxwbVtnzsDtOTLT2Gl2LBKCJ9HNGlC4hc/pub?gid=890585265&single=true&output=csv")
+
+logged_data <- logged_data %>% select(-`Score`)
+#view(logged_data)
+
+latest_data <- logged_data %>% rename(Sleep_Duration = 2, Physical_Activity_Status = 3, Study_Duration = 4, Number_of_Meals = 5, Number_of_Classes = 6)
+#view(latest_data)
+
+kable(head(latest_data))
+
+#glimpse(latest_data)
+```
+## The below given are some summary stastics for the data that I found would be useful were:
+
+```{r}
+maximum_hours_studied = max(latest_data$Study_Duration)
+print(paste("The maximum number of hours an individual studied from the data collected was :", maximum_hours_studied))
+
+average_number_of_classes <- mean(latest_data$Number_of_Classes, na.rm = TRUE)
+print(paste("The average number(rounded up) of classes each day for students who participated in the study is:", ceiling(average_number_of_classes)))
+
+sleep_duration <- max(latest_data$Sleep_Duration)
+print(paste("The maximum number of students from this data collected usually sleep for",sleep_duration))
+```
+
+## DATA VISUALIZATION
+
+**The below bar chart shows the frequency of students in collected data who have a physical activity in their life fall in the category they sleep more or less.**
+
+```{r}
+sleep_activity_plot <- ggplot(data=latest_data) +
+  geom_bar(aes(x = Physical_Activity_Status, fill = Sleep_Duration)) +
+  scale_fill_manual(values = c("#ff007f","Purple","#004EFF")) +
+  labs(title = "Does good Sleep implies being Energetic ", 
+       subtitle = "Bar Chart for comparing how physical activitives are hindered by sleep duration.",
+       x = " Physical Activity ",
+       y = " Number of People "
+       )
+
+print(sleep_activity_plot)
+
+```
+
+**The below bar chart shows the frequency of students in collected data if student have had more meals in a day tend to study for fall in the category of who study more study.**
+
+
+```{r}
+study_meals_plot <- latest_data %>% ggplot() +
+  geom_bar(aes(x = Study_Duration, fill = Number_of_Meals)) +
+  scale_fill_manual(values = c("SkyBlue", "Orange", "DarkGreen","Yellow"))+
+  scale_x_continuous(breaks = seq(0,24, by = 1)) +
+  labs(title = "Does more Meals implies more Study Time" , 
+       subtitle = "Bar chart to compare if more meals helps people study for longer time.",
+       x = " Duration of Study time ",
+       y = " Frequency of people with same study time ")
+
+print(study_meals_plot)
+```
